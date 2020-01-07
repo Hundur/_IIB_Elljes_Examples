@@ -6,7 +6,7 @@
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/_IIB_Elljes_Examples/icons/full/obj16/IntoMultipleMessages.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/_IIB_Elljes_Examples/icons/full/obj30/IntoMultipleMessages.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="241,20" mappingExpression="msl://{default}#IntoMultipleMessages">
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="241,20" mappingExpression="msl://{MappingNode}#IntoMultipleMessages">
         <translation xmi:type="utility:ConstantString" string="IntoMultipleMessages"/>
       </nodes>
       <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="10,20" queueName="EXAMPLE_INTO_MULTIPLE_MESSAGES" messageDomainProperty="XMLNSC">
