@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="MappingNode" version="8.0.5.0" xmlns:map="MappingNode">
     <input path="jar:file://!com/ibm/etools/mft/map/xsds/assembly/Environment.xsd" var="var"/>
     <input path="/Schemas/Test.xsd" var="var1"/>
     <output path="jar:file://!com/ibm/etools/mft/map/xsds/assembly/Environment.xsd"/>
     <generation engine="xquery"/>
     <mappingDeclaration name="PutIntoEnv">
         <input path="$var/mb:env(Environment)" var="Environment">
-            <cast path="$Environment/Variables/any" qualifier="Unresolved: {}Guestbook"/>
+            <cast path="$Environment/Variables/any" qualifier="Unresolved: {}Unresolved: {}Guestbook"/>
         </input>
         <input path="$var1/mb:msg(Guestbook,assembly,XMLNSC)" var="MessageAssembly"/>
         <output path="mb:env(Environment)">
