@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <input path="/Schemas/Test.xsd"/>
+    <output path="/Schemas/Test.xsd"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io" uri="http://www.ibm.com/iib/msl/json"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="IfNotBlank">
+        <input path="mb:msg(Guestbook,assembly,XMLNSC)" var="MessageAssembly"/>
+        <output path="mb:msg(Guestbook,assembly,XMLNSC)" var="MessageAssembly3"/>
+        <foreach>
+            <input path="$MessageAssembly/Guestbook/Guest" var="Guest1"/>
+            <output path="$MessageAssembly3/Guestbook/Guest"/>
+            <filter lang="xpath">fn:string-length($Guest1/FName) &gt; 0 and fn:string-length($Guest1/LName) &gt; 0</filter>
+            <move>
+                <input path="$Guest1/LName" var="LName6"/>
+                <output path="LName"/>
+            </move>
+            <move>
+                <input path="$Guest1/FName" var="FName7"/>
+                <output path="FName"/>
+            </move>
+        </foreach>
+    </mappingDeclaration>
+</mappingRoot>
