@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <input path="jar:file://!com/ibm/etools/mft/map/xsds/assembly/Environment.xsd" var="var2"/>
+    <input path="/Schemas/Test.xsd" var="var5"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/assembly/Environment.xsd" var="var4"/>
+    <output path="/Schemas/Test.xsd" var="var6"/>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="GetFromEnv">
+        <input path="$var2/mb:env(Environment)">
+            <cast path="Variables/any" qualifier="Guestbook" ref="var5" var="any2"/>
+        </input>
+        <output path="$var4/mb:env(Environment)" var="Environment">
+            <cast path="$Environment/Variables/any" qualifier="Unresolved: {}Guestbook" var="any1"/>
+        </output>
+        <output path="$var6/mb:msg(Guestbook,assembly,XMLNSC)" var="MessageAssembly1"/>
+        <passthrough>
+            <input path="."/>
+            <output path="$Environment/."/>
+            <updates/>
+        </passthrough>
+        <move>
+            <input path="Variables/Guestbook[1]"/>
+            <output path="$MessageAssembly1/Guestbook"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>
