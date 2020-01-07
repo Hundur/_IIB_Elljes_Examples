@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="MappingNode" version="8.0.5.0" xmlns:map="MappingNode">
     <input path="jar:file://!com/ibm/etools/mft/map/xsds/assembly/Environment.xsd" var="var2"/>
-    <input path="/Schemas/Test.xsd" var="var5"/>
+    <input path="/Schemas/Guestbook.xsd" var="var5"/>
     <output path="jar:file://!com/ibm/etools/mft/map/xsds/assembly/Environment.xsd" var="var4"/>
-    <output path="/Schemas/Test.xsd" var="var6"/>
+    <output path="/Schemas/Guestbook.xsd" var="var6"/>
     <generation engine="xquery"/>
     <mappingDeclaration name="GetFromEnv">
         <input path="$var2/mb:env(Environment)">
