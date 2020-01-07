@@ -1,0 +1,7 @@
+GeneratedBarFiles/
+Testfiles/Out/
+.metadata/
+.project
+.idea/
+*.bar
+*.class
