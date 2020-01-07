@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <input path="/Schemas/Test.xsd"/>
+    <output path="/Schemas/Test.xsd"/>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="IntoMultipleMessages">
+        <input path="mb:msg(Guestbook,assembly,XMLNSC)" var="MessageAssembly"/>
+        <output path="mb:msg(Guest,assembly,XMLNSC)" var="MessageAssembly1"/>
+        <foreach>
+            <input path="$MessageAssembly/Guestbook/Guest"/>
+            <output path="$MessageAssembly1/."/>
+            <move automap="true">
+                <input path="FName"/>
+                <output path="Guest/FName"/>
+            </move>
+            <move automap="true">
+                <input path="LName"/>
+                <output path="Guest/LName"/>
+            </move>
+        </foreach>
+    </mappingDeclaration>
+</mappingRoot>
