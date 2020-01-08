@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Guestbook>
+	<Guest>
+		<FName>Terje</FName>
+		<LName>Beck</LName>
+	</Guest>
+	<Guest>
+		<FName>Jan</FName>
+		<LName>Refsnes</LName>
+	</Guest>
+	<Guest>
+		<FName>Torleif</FName>
+		<LName>Rasmussen</LName>
+	</Guest>
+	<Guest>
+		<FName>anton</FName>
+		<LName>chek</LName>
+	</Guest>
+	<Guest>
+	</Guest>
+	<Guest>
+		<FName/>
+		<LName>prawin</LName>
+	</Guest>
+	<Guest>
+		<FName>Hege</FName>
+	</Guest>
+</Guestbook>
