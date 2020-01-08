@@ -6,14 +6,14 @@
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/_IIB_Elljes_Examples/icons/full/obj16/IfNotBlank.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/_IIB_Elljes_Examples/icons/full/obj30/IfNotBlank.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="143,20" mappingExpression="msl://{MappingNode}#IfNotBlank">
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="197,20" mappingExpression="msl://{MappingNode}#IfNotBlank">
         <translation xmi:type="utility:ConstantString" string="IfNotBlank"/>
       </nodes>
-      <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="10,20" queueName="EXAMPLE_IF_NULL" messageDomainProperty="XMLNSC">
-        <translation xmi:type="utility:ConstantString" string="EXAMPLE_IF_NULL"/>
+      <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="10,20" queueName="EXAMPLE_MAPPING_IF_NULL" messageDomainProperty="XMLNSC">
+        <translation xmi:type="utility:ConstantString" string="EXAMPLE_MAPPING_IF_NULL"/>
       </nodes>
-      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="237,20" queueName="EXAMPLE_END">
-        <translation xmi:type="utility:ConstantString" string="MQ Output"/>
+      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="291,20" queueName="EXAMPLE_END">
+        <translation xmi:type="utility:ConstantString" string="EXAMPLE_END"/>
       </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_1" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="MappingNode" version="8.0.5.0" xmlns:map="MappingNode">
+    <input path="/Schemas/Guestbook.xsd"/>
+    <output path="/Schemas/GuestbookFullName.xsd"/>
+    <namespaces>
+        <namespace kind="extension" prefix="fn" uri="http://www.w3.org/2005/xpath-functions"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="Concat">
+        <input path="mb:msg(Guestbook,assembly,XMLNSC)" var="MessageAssembly"/>
+        <output path="mb:msg(GuestbookFullName,assembly,XMLNSC)" var="MessageAssembly1"/>
+        <foreach>
+            <input path="$MessageAssembly/Guestbook/Guest" var="Guest"/>
+            <output path="$MessageAssembly1/GuestbookFullName/GuestFullName"/>
+            <function ref="fn:concat">
+                <input path="$Guest/FName" var="FName1"/>
+                <input path="$Guest/LName" var="LName1"/>
+                <output path="FullName"/>
+                <param name="string1" value="$FName1"/>
+                <param name="string2" value="'_'"/>
+                <param name="string3" value="$LName1"/>
+            </function>
+        </foreach>
+    </mappingDeclaration>
+</mappingRoot>
