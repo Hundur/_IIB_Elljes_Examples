@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="MappingNode" version="8.0.5.0" xmlns:map="MappingNode">
+    <input path="/Schemas/Guestbook.xsd"/>
+    <output path="/Schemas/Guestbook.xsd"/>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="DefaultValueIfBlank">
+        <input path="mb:msg(Guestbook,assembly,XMLNSC)" var="MessageAssembly"/>
+        <output path="mb:msg(Guestbook,assembly,XMLNSC)" var="MessageAssembly1"/>
+        <foreach>
+            <input path="$MessageAssembly/Guestbook/Guest" var="Guest"/>
+            <output path="$MessageAssembly1/Guestbook/Guest"/>
+            <condition>
+                <if>
+                    <input path="$Guest/FName" var="FName"/>
+                    <output path="FName"/>
+                    <test lang="xpath">fn:string-length($FName) &gt; 0</test>
+                    <move>
+                        <input path="$FName/." var="FName"/>
+                        <output path="."/>
+                    </move>
+                </if>
+                <else>
+                    <output path="FName"/>
+                    <assign value="Jesper">
+                        <output path="."/>
+                    </assign>
+                </else>
+            </condition>
+            <condition>
+                <if>
+                    <input path="$Guest/LName" var="LName"/>
+                    <output path="LName"/>
+                    <test lang="xpath">fn:string-length($LName) &gt; 0</test>
+                    <move>
+                        <input path="$LName/." var="LName"/>
+                        <output path="."/>
+                    </move>
+                </if>
+                <else>
+                    <output path="LName"/>
+                    <assign value="Dahl Ellingsen">
+                        <output path="."/>
+                    </assign>
+                </else>
+            </condition>
+        </foreach>
+    </mappingDeclaration>
+</mappingRoot>
