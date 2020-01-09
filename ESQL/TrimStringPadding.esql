@@ -1,0 +1,20 @@
+BROKER SCHEMA ESQL
+
+
+CREATE COMPUTE MODULE TrimStringPadding
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		SET OutputRoot = InputRoot;
+		
+		DECLARE ValueToTrim CHARACTER;
+
+		SET ValueToTrim = InputRoot.XMLNSC.XMLExample.Data.Value;
+		
+		SET ValueToTrim = TRIM(LEADING '0' FROM ValueToTrim);
+			
+		SET OutputRoot.XMLNSC.XMLExample.Data.Value = ValueToTrim;		
+		
+		RETURN TRUE;
+	END;
+END MODULE;
