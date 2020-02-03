@@ -1,0 +1,29 @@
+BROKER SCHEMA ESQL
+
+
+CREATE COMPUTE MODULE NullIfBlank
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		SET OutputRoot = InputRoot;
+		
+		DECLARE FName CHARACTER;
+		DECLARE LName CHARACTER;
+		
+		SET FName = InputRoot.XMLNSC.Guestbook.Guest.FName;
+		SET LName = InputRoot.XMLNSC.Guestbook.Guest.LName;
+		
+		IF LENGTH(FName) = 0 THEN
+			SET FName = NULL;
+		END IF;
+				
+		IF LENGTH(LName) = 0 THEN
+			SET LName = NULL;
+		END IF;
+		
+		SET OutputRoot.XMLNSC.Guestbook.Guest.FName = FName;
+		SET OutputRoot.XMLNSC.Guestbook.Guest.LName = LName;
+		
+		RETURN TRUE;
+	END;
+END MODULE;
