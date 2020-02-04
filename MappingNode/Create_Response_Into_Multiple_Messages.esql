@@ -1,0 +1,12 @@
+BROKER SCHEMA MappingNode
+
+
+CREATE COMPUTE MODULE Create_Response_Into_Multiple_Messages
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		SET OutputRoot.XMLNSC.MessageCount = Environment.Variables.Count;
+		
+		RETURN TRUE;
+	END;
+END MODULE;

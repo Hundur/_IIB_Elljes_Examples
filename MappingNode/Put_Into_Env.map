@@ -3,21 +3,21 @@
     <input path="/Schemas/Guestbook.xsd" var="var"/>
     <output path="jar:file://!com/ibm/etools/mft/map/xsds/assembly/Environment.xsd"/>
     <generation engine="xquery"/>
-    <mappingDeclaration name="PutIntoEnv">
+    <mappingDeclaration name="Put_Into_Env">
         <input path="$var1/mb:env(Environment)" var="Environment">
-            <cast path="$Environment/any" qualifier="Guestbook" ref="var"/>
+            <cast path="$Environment/Variables/any" qualifier="Guestbook" ref="var"/>
         </input>
         <input path="$var/mb:msg(Guestbook,assembly,XMLNSC)" var="MessageAssembly"/>
         <output path="mb:env(Environment)">
-            <cast path="any" qualifier="Guestbook" ref="var"/>
+            <cast path="Variables/any" qualifier="Guestbook" ref="var"/>
         </output>
         <passthrough>
             <input path="$Environment/."/>
             <output path="."/>
             <updates>
                 <move>
-                    <input path="$Environment/Guestbook"/>
-                    <output path="Guestbook"/>
+                    <input path="$MessageAssembly/Guestbook"/>
+                    <output path="Variables/Guestbook"/>
                 </move>
             </updates>
         </passthrough>
