@@ -1,0 +1,274 @@
+{
+	"info": {
+		"_postman_id": "1b41a7ab-3053-421c-baee-d750aae8b871",
+		"name": "_IIB_Elljes_Examples",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ESQL",
+			"item": [
+				{
+					"name": "null-if-blank",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Guestbook>\r\n\t<Guest>\r\n\t\t<FName>Terje</FName>\r\n\t\t<LName></LName>\r\n\t</Guest>\r\n</Guestbook>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7080/exampleproject/null-if-blank",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7080",
+							"path": [
+								"exampleproject",
+								"null-if-blank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "trim-string-padding",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Guestbook>\r\n\t<Guest>\r\n\t\t<FName>0000000000000000000000000Terje</FName>\r\n\t\t<LName>Beck</LName>\r\n\t</Guest>\r\n</Guestbook>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7080/exampleproject/trim-string-padding",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7080",
+							"path": [
+								"exampleproject",
+								"trim-string-padding"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "MappingNode",
+			"item": [
+				{
+					"name": "if-not-blank",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Guestbook>\r\n\t<Guest>\r\n\t\t<FName>Terje</FName>\r\n\t\t<LName>Beck</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Jan</FName>\r\n\t\t<LName>Refsnes</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Torleif</FName>\r\n\t\t<LName>Rasmussen</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>anton</FName>\r\n\t\t<LName>chek</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName/>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName>prawin</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Hege</FName>\r\n\t\t<LName/>\r\n\t</Guest>\r\n</Guestbook>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7080/exampleproject/if-not-blank",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7080",
+							"path": [
+								"exampleproject",
+								"if-not-blank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "concat",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Guestbook>\r\n\t<Guest>\r\n\t\t<FName>Terje</FName>\r\n\t\t<LName>Beck</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Jan</FName>\r\n\t\t<LName>Refsnes</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Torleif</FName>\r\n\t\t<LName>Rasmussen</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>anton</FName>\r\n\t\t<LName>chek</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName/>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName>prawin</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Hege</FName>\r\n\t\t<LName/>\r\n\t</Guest>\r\n</Guestbook>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7080/exampleproject/concat",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7080",
+							"path": [
+								"exampleproject",
+								"concat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "default-value-if-blank",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Guestbook>\r\n\t<Guest>\r\n\t\t<FName>Terje</FName>\r\n\t\t<LName>Beck</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Jan</FName>\r\n\t\t<LName>Refsnes</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Torleif</FName>\r\n\t\t<LName>Rasmussen</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>anton</FName>\r\n\t\t<LName>chek</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName/>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName>prawin</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Hege</FName>\r\n\t\t<LName/>\r\n\t</Guest>\r\n</Guestbook>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7080/exampleproject/default-value-if-blank",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7080",
+							"path": [
+								"exampleproject",
+								"default-value-if-blank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "using-env",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Guestbook>\r\n\t<Guest>\r\n\t\t<FName>Terje</FName>\r\n\t\t<LName>Beck</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Jan</FName>\r\n\t\t<LName>Refsnes</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Torleif</FName>\r\n\t\t<LName>Rasmussen</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>anton</FName>\r\n\t\t<LName>chek</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName/>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName>prawin</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Hege</FName>\r\n\t\t<LName/>\r\n\t</Guest>\r\n</Guestbook>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7080/exampleproject/using-env",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7080",
+							"path": [
+								"exampleproject",
+								"using-env"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "into-multiple-messages",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Guestbook>\r\n\t<Guest>\r\n\t\t<FName>Terje</FName>\r\n\t\t<LName>Beck</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Jan</FName>\r\n\t\t<LName>Refsnes</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Torleif</FName>\r\n\t\t<LName>Rasmussen</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>anton</FName>\r\n\t\t<LName>chek</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName/>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName>prawin</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Hege</FName>\r\n\t\t<LName/>\r\n\t</Guest>\r\n</Guestbook>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7080/exampleproject/into-multiple-messages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7080",
+							"path": [
+								"exampleproject",
+								"into-multiple-messages"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
