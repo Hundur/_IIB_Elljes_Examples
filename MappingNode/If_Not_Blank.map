@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="MappingNode" version="8.0.5.0" xmlns:map="MappingNode">
-    <input path="/Schemas/Guestbook.xsd"/>
-    <output path="/Schemas/Guestbook.xsd"/>
+    <input path="/Schemas/GuestBook.xsd"/>
+    <output path="/Schemas/GuestBook.xsd"/>
     <namespaces>
         <namespace kind="supplement" prefix="io" uri="http://www.ibm.com/iib/msl/json"/>
     </namespaces>
     <generation engine="xquery"/>
     <mappingDeclaration name="If_Not_Blank">
-        <input path="mb:msg(Guestbook,assembly,XMLNSC)" var="MessageAssembly"/>
-        <output path="mb:msg(Guestbook,assembly,XMLNSC)" var="MessageAssembly3"/>
+        <input path="mb:msg(GuestBook,assembly,XMLNSC)" var="MessageAssembly"/>
+        <output path="mb:msg(GuestBook,assembly,XMLNSC)" var="MessageAssembly3"/>
         <foreach>
-            <input path="$MessageAssembly/Guestbook/Guest" var="Guest1"/>
-            <output path="$MessageAssembly3/Guestbook/Guest"/>
+            <input path="$MessageAssembly/GuestBook/Guest" var="Guest1"/>
+            <output path="$MessageAssembly3/GuestBook/Guest"/>
             <filter lang="xpath">fn:string-length($Guest1/FName) &gt; 0 and fn:string-length($Guest1/LName) &gt; 0</filter>
             <move>
                 <input path="$Guest1/LName" var="LName6"/>
