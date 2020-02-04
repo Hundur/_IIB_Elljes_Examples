@@ -10,6 +10,23 @@
 			"item": [
 				{
 					"name": "null-if-blank",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7e30d59b-6623-4353-83fe-2d5299f73cf6",
+								"exec": [
+									"var data = xml2Json(responseBody);",
+									"",
+									"var FName = data.GuestBook.Guest.FName;",
+									"var LName = data.GuestBook.Guest.LName;",
+									"",
+									"tests[\"Removed Blank Statement\"] = FName === \"Terje\" && LName === undefined;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -22,7 +39,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Guestbook>\r\n\t<Guest>\r\n\t\t<FName>Terje</FName>\r\n\t\t<LName></LName>\r\n\t</Guest>\r\n</Guestbook>",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<GuestBook>\r\n\t<Guest>\r\n\t\t<FName>Terje</FName>\r\n\t\t<LName></LName>\r\n\t</Guest>\r\n</GuestBook>",
 							"options": {
 								"raw": {
 									"language": "xml"
@@ -46,6 +63,22 @@
 				},
 				{
 					"name": "trim-string-padding",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "64d6710e-9edc-4d9b-a85f-0061c4d53303",
+								"exec": [
+									"var data = xml2Json(responseBody);",
+									"",
+									"var FName = data.GuestBook.Guest.FName;",
+									"",
+									"tests[\"Trim Succeeded\"] = FName === \"Terje\";"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -58,7 +91,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Guestbook>\r\n\t<Guest>\r\n\t\t<FName>0000000000000000000000000Terje</FName>\r\n\t\t<LName>Beck</LName>\r\n\t</Guest>\r\n</Guestbook>",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<GuestBook>\r\n\t<Guest>\r\n\t\t<FName>0000000000000000000000000Terje</FName>\r\n\t\t<LName>Beck</LName>\r\n\t</Guest>\r\n</GuestBook>",
 							"options": {
 								"raw": {
 									"language": "xml"
@@ -88,6 +121,29 @@
 			"item": [
 				{
 					"name": "if-not-blank",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5b8e62f9-b03e-4736-9dae-a87c74cfd7da",
+								"exec": [
+									"var data = xml2Json(responseBody);",
+									"var GuestBook = data.GuestBook;",
+									"",
+									"var foundBlank = false;",
+									"",
+									"for(var Guest of GuestBook.Guest){",
+									"    if(Guest.FName === \"\" || Guest.LName === \"\"){",
+									"        foundBlank = true;",
+									"    }",
+									"}",
+									"",
+									"tests[\"Removing Blank Guests Succeeded\"] = !foundBlank;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -100,7 +156,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Guestbook>\r\n\t<Guest>\r\n\t\t<FName>Terje</FName>\r\n\t\t<LName>Beck</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Jan</FName>\r\n\t\t<LName>Refsnes</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Torleif</FName>\r\n\t\t<LName>Rasmussen</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>anton</FName>\r\n\t\t<LName>chek</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName/>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName>prawin</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Hege</FName>\r\n\t\t<LName/>\r\n\t</Guest>\r\n</Guestbook>",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<GuestBook>\r\n\t<Guest>\r\n\t\t<FName>Terje</FName>\r\n\t\t<LName>Beck</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Jan</FName>\r\n\t\t<LName>Refsnes</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Torleif</FName>\r\n\t\t<LName>Rasmussen</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>anton</FName>\r\n\t\t<LName>chek</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName/>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName>prawin</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Hege</FName>\r\n\t\t<LName/>\r\n\t</Guest>\r\n</GuestBook>",
 							"options": {
 								"raw": {
 									"language": "xml"
@@ -124,6 +180,29 @@
 				},
 				{
 					"name": "concat",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3c60cc34-665f-4e3b-87ca-ace39fb3ab8f",
+								"exec": [
+									"var data = xml2Json(responseBody);",
+									"var GuestBook = data.GuestBook;",
+									"",
+									"var allConcatenated = true;",
+									"",
+									"for(var Guest of GuestBook.Guest){",
+									"    if(!Guest.FullName.includes(\" \")){",
+									"        allConcatenated = false;",
+									"    }",
+									"}",
+									"",
+									"tests[\"Concatenating FName and LName Succeeded\"] = allConcatenated;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -136,7 +215,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Guestbook>\r\n\t<Guest>\r\n\t\t<FName>Terje</FName>\r\n\t\t<LName>Beck</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Jan</FName>\r\n\t\t<LName>Refsnes</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Torleif</FName>\r\n\t\t<LName>Rasmussen</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>anton</FName>\r\n\t\t<LName>chek</LName>\r\n\t</Guest>\r\n</Guestbook>",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<GuestBook>\r\n\t<Guest>\r\n\t\t<FName>Terje</FName>\r\n\t\t<LName>Beck</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Jan</FName>\r\n\t\t<LName>Refsnes</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Torleif</FName>\r\n\t\t<LName>Rasmussen</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>anton</FName>\r\n\t\t<LName>chek</LName>\r\n\t</Guest>\r\n</GuestBook>",
 							"options": {
 								"raw": {
 									"language": "xml"
@@ -160,6 +239,29 @@
 				},
 				{
 					"name": "default-value-if-blank",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "45f17820-b30d-4b30-a170-250b29afbea6",
+								"exec": [
+									"var data = xml2Json(responseBody);",
+									"var GuestBook = data.GuestBook;",
+									"",
+									"var anyDefaultValues = false;",
+									"",
+									"for(var Guest of GuestBook.Guest){",
+									"    if(Guest.FName === \"Default\" || Guest.LName === \"Default\"){",
+									"        anyDefaultValues = true;",
+									"    }",
+									"}",
+									"",
+									"tests[\"Replacing Blank With 'Default' Succeeded\"] = anyDefaultValues;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -172,7 +274,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Guestbook>\r\n\t<Guest>\r\n\t\t<FName>Terje</FName>\r\n\t\t<LName>Beck</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Jan</FName>\r\n\t\t<LName>Refsnes</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Torleif</FName>\r\n\t\t<LName>Rasmussen</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>anton</FName>\r\n\t\t<LName>chek</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName/>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName>prawin</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Hege</FName>\r\n\t\t<LName/>\r\n\t</Guest>\r\n</Guestbook>",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<GuestBook>\r\n\t<Guest>\r\n\t\t<FName>Terje</FName>\r\n\t\t<LName>Beck</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Jan</FName>\r\n\t\t<LName>Refsnes</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Torleif</FName>\r\n\t\t<LName>Rasmussen</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>anton</FName>\r\n\t\t<LName>chek</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName/>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName>prawin</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Hege</FName>\r\n\t\t<LName/>\r\n\t</Guest>\r\n</GuestBook>",
 							"options": {
 								"raw": {
 									"language": "xml"
@@ -196,6 +298,27 @@
 				},
 				{
 					"name": "using-env",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6c852415-d4e0-4c33-8e40-4f8964b7e791",
+								"exec": [
+									"var data = xml2Json(responseBody);",
+									"var GuestBook = data.GuestBook;",
+									"",
+									"var count = 0;",
+									"",
+									"for(var Guest of GuestBook.Guest){",
+									"    count++;",
+									"}",
+									"",
+									"tests[\"Mapping To And From Environment Succeeded\"] = count === 7;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -208,7 +331,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Guestbook>\r\n\t<Guest>\r\n\t\t<FName>Terje</FName>\r\n\t\t<LName>Beck</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Jan</FName>\r\n\t\t<LName>Refsnes</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Torleif</FName>\r\n\t\t<LName>Rasmussen</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>anton</FName>\r\n\t\t<LName>chek</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName/>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName>prawin</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Hege</FName>\r\n\t\t<LName/>\r\n\t</Guest>\r\n</Guestbook>",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<GuestBook>\r\n\t<Guest>\r\n\t\t<FName>Terje</FName>\r\n\t\t<LName>Beck</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Jan</FName>\r\n\t\t<LName>Refsnes</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Torleif</FName>\r\n\t\t<LName>Rasmussen</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>anton</FName>\r\n\t\t<LName>chek</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName/>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName>prawin</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Hege</FName>\r\n\t\t<LName/>\r\n\t</Guest>\r\n</GuestBook>",
 							"options": {
 								"raw": {
 									"language": "xml"
@@ -232,6 +355,21 @@
 				},
 				{
 					"name": "into-multiple-messages",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3ff4116f-8570-442c-8198-992de3796956",
+								"exec": [
+									"var data = xml2Json(responseBody);",
+									"var count = data.MessageCount;",
+									"",
+									"tests[\"Splitting Into Multiple Messages Succeeded\"] = count === \"7\";"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -244,7 +382,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Guestbook>\r\n\t<Guest>\r\n\t\t<FName>Terje</FName>\r\n\t\t<LName>Beck</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Jan</FName>\r\n\t\t<LName>Refsnes</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Torleif</FName>\r\n\t\t<LName>Rasmussen</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>anton</FName>\r\n\t\t<LName>chek</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName/>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName>prawin</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Hege</FName>\r\n\t\t<LName/>\r\n\t</Guest>\r\n</Guestbook>",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<GuestBook>\r\n\t<Guest>\r\n\t\t<FName>Terje</FName>\r\n\t\t<LName>Beck</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Jan</FName>\r\n\t\t<LName>Refsnes</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Torleif</FName>\r\n\t\t<LName>Rasmussen</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>anton</FName>\r\n\t\t<LName>chek</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName/>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName/>\r\n\t\t<LName>prawin</LName>\r\n\t</Guest>\r\n\t<Guest>\r\n\t\t<FName>Hege</FName>\r\n\t\t<LName/>\r\n\t</Guest>\r\n</GuestBook>",
 							"options": {
 								"raw": {
 									"language": "xml"
