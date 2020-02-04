@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="MappingNode" version="8.0.5.0" xmlns:map="MappingNode">
     <input path="jar:file://!com/ibm/etools/mft/map/xsds/assembly/Environment.xsd" var="var2"/>
-    <input path="/Schemas/Guestbook.xsd" var="var5"/>
+    <input path="/Schemas/GuestBook.xsd" var="var5"/>
     <output path="jar:file://!com/ibm/etools/mft/map/xsds/assembly/Environment.xsd" var="var4"/>
-    <output path="/Schemas/Guestbook.xsd" var="var6"/>
+    <output path="/Schemas/GuestBook.xsd" var="var6"/>
     <generation engine="xquery"/>
     <mappingDeclaration name="Get_From_Env">
         <input path="$var2/mb:env(Environment)">
-            <cast path="Variables/any" qualifier="Guestbook" ref="var5" var="any2"/>
+            <cast path="Variables/any" qualifier="GuestBook" ref="var5" var="any2"/>
         </input>
         <output path="$var4/mb:env(Environment)" var="Environment">
-            <cast path="$Environment/Variables/any" qualifier="Unresolved: {}Unresolved: {}Unresolved: {}Guestbook" var="any1"/>
+            <cast path="$Environment/Variables/any" qualifier="Unresolved: {}Unresolved: {}Unresolved: {}GuestBook" var="any1"/>
         </output>
-        <output path="$var6/mb:msg(Guestbook,assembly,XMLNSC)" var="MessageAssembly1"/>
+        <output path="$var6/mb:msg(GuestBook,assembly,XMLNSC)" var="MessageAssembly1"/>
         <passthrough>
             <input path="."/>
             <output path="$Environment/."/>
             <updates/>
         </passthrough>
         <move>
-            <input path="Variables/Guestbook[1]"/>
-            <output path="$MessageAssembly1/Guestbook"/>
+            <input path="Variables/GuestBook[1]"/>
+            <output path="$MessageAssembly1/GuestBook"/>
         </move>
     </mappingDeclaration>
 </mappingRoot>
