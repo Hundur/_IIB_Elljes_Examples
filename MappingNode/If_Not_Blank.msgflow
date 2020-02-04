@@ -9,7 +9,7 @@
       <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="120,20" mappingExpression="msl://{MappingNode}#If_Not_Blank">
         <translation xmi:type="utility:ConstantString" string="If Not Blank"/>
       </nodes>
-      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="10,20" URLSpecifier="/exampleproject/if-not-blank" messageDomainProperty="XMLNSC">
+      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="10,20" URLSpecifier="/exampleproject/mappingnode/if-not-blank" messageDomainProperty="XMLNSC">
         <translation xmi:type="utility:ConstantString" string="Start Example"/>
       </nodes>
       <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="214,20">

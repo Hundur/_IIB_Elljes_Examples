@@ -9,7 +9,7 @@
       <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="120,20" computeExpression="esql://routine/ESQL#Trim_String_Padding.Main">
         <translation xmi:type="utility:ConstantString" string="Trim String Padding"/>
       </nodes>
-      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="10,20" URLSpecifier="/exampleproject/trim-string-padding" messageDomainProperty="XMLNSC">
+      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="10,20" URLSpecifier="/exampleproject/esql/trim-string-padding" messageDomainProperty="XMLNSC">
         <translation xmi:type="utility:ConstantString" string="Start Example"/>
       </nodes>
       <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="254,20">

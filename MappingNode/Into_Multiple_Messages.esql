@@ -1,0 +1,44 @@
+BROKER SCHEMA MappingNode
+
+
+CREATE COMPUTE MODULE Create_Response
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		SET OutputRoot.XMLNSC.MessageCount = Environment.Variables.Count;
+		
+		RETURN TRUE;
+	END;
+END MODULE;
+
+
+CREATE COMPUTE MODULE Count_Messages
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		CREATE FIELD Environment.Variables.Count;
+		
+		IF Environment.Variables.Count IS NULL THEN
+			SET Environment.Variables.Count = 0;
+		END IF;
+		
+		SET Environment.Variables.Count = Environment.Variables.Count + 1;
+		
+		RETURN FALSE;
+	END;
+END MODULE;
+
+
+CREATE COMPUTE MODULE Respond_When_Finished
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		SET OutputRoot = InputRoot;
+		
+		PROPAGATE TO TERMINAL 'out';
+		
+		PROPAGATE TO TERMINAL 'out1';
+		
+		RETURN FALSE;
+	END;
+END MODULE;

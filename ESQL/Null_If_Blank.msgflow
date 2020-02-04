@@ -9,7 +9,7 @@
       <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="120,20" computeExpression="esql://routine/ESQL#Null_If_Blank.Main">
         <translation xmi:type="utility:ConstantString" string="Null If Blank"/>
       </nodes>
-      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="10,20" URLSpecifier="/exampleproject/null-if-blank" messageDomainProperty="XMLNSC">
+      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="10,20" URLSpecifier="/exampleproject/esql/null-if-blank" messageDomainProperty="XMLNSC">
         <translation xmi:type="utility:ConstantString" string="Start Example"/>
       </nodes>
       <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_7" location="215,20">

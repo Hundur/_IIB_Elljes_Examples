@@ -9,7 +9,7 @@
       <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="120,20" mappingExpression="msl://{MappingNode}#Concat">
         <translation xmi:type="utility:ConstantString" string="Concat"/>
       </nodes>
-      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="10,20" URLSpecifier="/exampleproject/concat" messageDomainProperty="XMLNSC">
+      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="10,20" URLSpecifier="/exampleproject/mappingnode/concat" messageDomainProperty="XMLNSC">
         <translation xmi:type="utility:ConstantString" string="Start Example"/>
       </nodes>
       <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="214,20">
