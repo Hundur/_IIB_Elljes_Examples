@@ -1,0 +1,55 @@
+BROKER SCHEMA ESQL
+
+
+CREATE COMPUTE MODULE Sequencer
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		SET Environment.Variables.SequenceString = '0';
+		
+		PROPAGATE TO TERMINAL 'out';
+		PROPAGATE TO TERMINAL 'out1';
+		PROPAGATE TO TERMINAL 'out2';
+		PROPAGATE TO TERMINAL 'out3';
+		
+		RETURN FALSE;
+	END;
+END MODULE;
+
+
+CREATE COMPUTE MODULE Concat_1
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET Environment.Variables.SequenceString = Environment.Variables.SequenceString || ' 1';
+		RETURN FALSE;
+	END;
+END MODULE;
+
+
+CREATE COMPUTE MODULE Concat_2
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET Environment.Variables.SequenceString = Environment.Variables.SequenceString || ' 2';
+		RETURN FALSE;
+	END;
+END MODULE;
+
+
+CREATE COMPUTE MODULE Concat_3
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET Environment.Variables.SequenceString = Environment.Variables.SequenceString || ' 3';
+		RETURN FALSE;
+	END;
+END MODULE;
+
+
+CREATE COMPUTE MODULE Create_Response
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		SET OutputRoot.XMLNSC.SequenceString = Environment.Variables.SequenceString;
+		
+		RETURN TRUE;
+	END;
+END MODULE;

@@ -47,7 +47,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:7080/exampleproject/null-if-blank",
+							"raw": "http://localhost:7080/exampleproject/esql/null-if-blank",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -55,6 +55,7 @@
 							"port": "7080",
 							"path": [
 								"exampleproject",
+								"esql",
 								"null-if-blank"
 							]
 						}
@@ -99,7 +100,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:7080/exampleproject/trim-string-padding",
+							"raw": "http://localhost:7080/exampleproject/esql/trim-string-padding",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -107,7 +108,61 @@
 							"port": "7080",
 							"path": [
 								"exampleproject",
+								"esql",
 								"trim-string-padding"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sequencer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "64d6710e-9edc-4d9b-a85f-0061c4d53303",
+								"exec": [
+									"var data = xml2Json(responseBody);",
+									"",
+									"var sequenceString = data.SequenceString;",
+									"",
+									"tests[\"Sequence Succeeded\"] = sequenceString === \"0 1 2 3\";"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<GuestBook>\r\n\t<Guest>\r\n\t\t<FName>0000000000000000000000000Terje</FName>\r\n\t\t<LName>Beck</LName>\r\n\t</Guest>\r\n</GuestBook>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7080/exampleproject/esql/sequencer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7080",
+							"path": [
+								"exampleproject",
+								"esql",
+								"sequencer"
 							]
 						}
 					},
@@ -164,7 +219,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:7080/exampleproject/if-not-blank",
+							"raw": "http://localhost:7080/exampleproject/mappingnode/if-not-blank",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -172,6 +227,7 @@
 							"port": "7080",
 							"path": [
 								"exampleproject",
+								"mappingnode",
 								"if-not-blank"
 							]
 						}
@@ -223,7 +279,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:7080/exampleproject/concat",
+							"raw": "http://localhost:7080/exampleproject/mappingnode/concat",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -231,6 +287,7 @@
 							"port": "7080",
 							"path": [
 								"exampleproject",
+								"mappingnode",
 								"concat"
 							]
 						}
@@ -282,7 +339,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:7080/exampleproject/default-value-if-blank",
+							"raw": "http://localhost:7080/exampleproject/mappingnode/default-value-if-blank",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -290,6 +347,7 @@
 							"port": "7080",
 							"path": [
 								"exampleproject",
+								"mappingnode",
 								"default-value-if-blank"
 							]
 						}
@@ -339,7 +397,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:7080/exampleproject/using-env",
+							"raw": "http://localhost:7080/exampleproject/mappingnode/using-env",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -347,6 +405,7 @@
 							"port": "7080",
 							"path": [
 								"exampleproject",
+								"mappingnode",
 								"using-env"
 							]
 						}
@@ -390,7 +449,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:7080/exampleproject/into-multiple-messages",
+							"raw": "http://localhost:7080/exampleproject/mappingnode/into-multiple-messages",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -398,6 +457,7 @@
 							"port": "7080",
 							"path": [
 								"exampleproject",
+								"mappingnode",
 								"into-multiple-messages"
 							]
 						}
