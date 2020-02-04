@@ -10,8 +10,8 @@ CREATE COMPUTE MODULE Null_If_Blank
 		DECLARE FName CHARACTER;
 		DECLARE LName CHARACTER;
 		
-		SET FName = InputRoot.XMLNSC.Guestbook.Guest.FName;
-		SET LName = InputRoot.XMLNSC.Guestbook.Guest.LName;
+		SET FName = InputRoot.XMLNSC.GuestBook.Guest.FName;
+		SET LName = InputRoot.XMLNSC.GuestBook.Guest.LName;
 		
 		IF LENGTH(FName) = 0 THEN
 			SET FName = NULL;
@@ -21,8 +21,8 @@ CREATE COMPUTE MODULE Null_If_Blank
 			SET LName = NULL;
 		END IF;
 		
-		SET OutputRoot.XMLNSC.Guestbook.Guest.FName = FName;
-		SET OutputRoot.XMLNSC.Guestbook.Guest.LName = LName;
+		SET OutputRoot.XMLNSC.GuestBook.Guest.FName = FName;
+		SET OutputRoot.XMLNSC.GuestBook.Guest.LName = LName;
 		
 		RETURN TRUE;
 	END;
