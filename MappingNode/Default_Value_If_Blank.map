@@ -2,7 +2,7 @@
     <input path="/Schemas/Guestbook.xsd"/>
     <output path="/Schemas/Guestbook.xsd"/>
     <generation engine="xquery"/>
-    <mappingDeclaration name="DefaultValueIfBlank">
+    <mappingDeclaration name="Default_Value_If_Blank">
         <input path="mb:msg(Guestbook,assembly,XMLNSC)" var="MessageAssembly"/>
         <output path="mb:msg(Guestbook,assembly,XMLNSC)" var="MessageAssembly1"/>
         <foreach>
@@ -20,7 +20,7 @@
                 </if>
                 <else>
                     <output path="FName"/>
-                    <assign value="Jesper">
+                    <assign value="Default">
                         <output path="."/>
                     </assign>
                 </else>
@@ -37,7 +37,7 @@
                 </if>
                 <else>
                     <output path="LName"/>
-                    <assign value="Dahl Ellingsen">
+                    <assign value="Default">
                         <output path="."/>
                     </assign>
                 </else>

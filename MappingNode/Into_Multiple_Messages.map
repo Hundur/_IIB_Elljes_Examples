@@ -2,7 +2,7 @@
     <input path="/Schemas/Guestbook.xsd"/>
     <output path="/Schemas/Guestbook.xsd"/>
     <generation engine="xquery"/>
-    <mappingDeclaration name="IntoMultipleMessages">
+    <mappingDeclaration name="Into_Multiple_Messages">
         <input path="mb:msg(Guestbook,assembly,XMLNSC)" var="MessageAssembly"/>
         <output path="mb:msg(Guest,assembly,XMLNSC)" var="MessageAssembly1"/>
         <foreach>

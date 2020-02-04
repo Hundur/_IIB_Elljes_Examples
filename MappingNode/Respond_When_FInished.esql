@@ -1,0 +1,16 @@
+BROKER SCHEMA MappingNode
+
+
+CREATE COMPUTE MODULE Respond_When_FInished
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		SET OutputRoot = InputRoot;
+		
+		PROPAGATE TO TERMINAL 'out';
+		
+		PROPAGATE TO TERMINAL 'out1';
+		
+		RETURN FALSE;
+	END;
+END MODULE;

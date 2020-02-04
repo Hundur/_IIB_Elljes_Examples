@@ -4,12 +4,12 @@
     <output path="jar:file://!com/ibm/etools/mft/map/xsds/assembly/Environment.xsd" var="var4"/>
     <output path="/Schemas/Guestbook.xsd" var="var6"/>
     <generation engine="xquery"/>
-    <mappingDeclaration name="GetFromEnv">
+    <mappingDeclaration name="Get_From_Env">
         <input path="$var2/mb:env(Environment)">
             <cast path="Variables/any" qualifier="Guestbook" ref="var5" var="any2"/>
         </input>
         <output path="$var4/mb:env(Environment)" var="Environment">
-            <cast path="$Environment/Variables/any" qualifier="Unresolved: {}Unresolved: {}Guestbook" var="any1"/>
+            <cast path="$Environment/Variables/any" qualifier="Unresolved: {}Unresolved: {}Unresolved: {}Guestbook" var="any1"/>
         </output>
         <output path="$var6/mb:msg(Guestbook,assembly,XMLNSC)" var="MessageAssembly1"/>
         <passthrough>

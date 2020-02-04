@@ -1,7 +1,7 @@
 BROKER SCHEMA ESQL
 
 
-CREATE COMPUTE MODULE TrimStringPadding
+CREATE COMPUTE MODULE Trim_String_Padding
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
 		
@@ -9,11 +9,11 @@ CREATE COMPUTE MODULE TrimStringPadding
 		
 		DECLARE ValueToTrim CHARACTER;
 
-		SET ValueToTrim = InputRoot.XMLNSC.XMLExample.Data.Value;
+		SET ValueToTrim = InputRoot.XMLNSC.Guestbook.Guest.FName;
 		
 		SET ValueToTrim = TRIM(LEADING '0' FROM ValueToTrim);
 			
-		SET OutputRoot.XMLNSC.XMLExample.Data.Value = ValueToTrim;		
+		SET OutputRoot.XMLNSC.Guestbook.Guest.FName = ValueToTrim;		
 		
 		RETURN TRUE;
 	END;

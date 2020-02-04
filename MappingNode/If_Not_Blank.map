@@ -5,7 +5,7 @@
         <namespace kind="supplement" prefix="io" uri="http://www.ibm.com/iib/msl/json"/>
     </namespaces>
     <generation engine="xquery"/>
-    <mappingDeclaration name="IfNotBlank">
+    <mappingDeclaration name="If_Not_Blank">
         <input path="mb:msg(Guestbook,assembly,XMLNSC)" var="MessageAssembly"/>
         <output path="mb:msg(Guestbook,assembly,XMLNSC)" var="MessageAssembly3"/>
         <foreach>
