@@ -6,7 +6,7 @@
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/_IIB_Elljes_Examples/icons/full/obj16/Trim_String_Padding.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/_IIB_Elljes_Examples/icons/full/obj30/Trim_String_Padding.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="120,20" computeExpression="esql://routine/ESQL#Trim_String_Padding.Main">
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="120,20" computeExpression="esql://routine/Trim_String_Padding#Trim_String_Padding.Main">
         <translation xmi:type="utility:ConstantString" string="Trim String Padding"/>
       </nodes>
       <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="10,20" URLSpecifier="/exampleproject/esql/trim-string-padding" messageDomainProperty="XMLNSC">

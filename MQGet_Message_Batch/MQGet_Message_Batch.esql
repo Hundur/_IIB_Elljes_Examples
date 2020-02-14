@@ -1,0 +1,101 @@
+BROKER SCHEMA MQGet_Message_Batch
+
+
+
+CREATE COMPUTE MODULE Send_MessageIDs
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN		
+		
+		SET Environment.Variables.HTTPContext = InputRoot.HTTPInputHeader;
+		
+		SET OutputRoot = InputRoot;
+		
+		PROPAGATE TO TERMINAL 'out';
+		
+		-- When the message dies, this will run
+		
+		SET OutputRoot.MQMD.CorrelId = InputRoot.MQMD.MsgId;
+		
+		DECLARE outRef REFERENCE TO OutputRoot;
+		
+		CREATE LASTCHILD OF outRef AS outRef DOMAIN 'XMLNSC' NAME 'XMLNSC';
+		CREATE LASTCHILD OF outRef AS outRef TYPE XMLNSC.Folder NAME 'MsgIds';
+					
+		DECLARE msgIdRef REFERENCE TO Environment.Variables.msgIds;
+		MOVE msgIdRef FIRSTCHILD NAME 'msgId';
+		
+		WHILE LASTMOVE(msgIdRef) DO
+			CREATE LASTCHILD OF outRef TYPE XMLNSC.Field NAME 'MsgId' Value msgIdRef;
+			
+			MOVE msgIdRef NEXTSIBLING REPEAT NAME;
+		END WHILE;
+		
+		PROPAGATE TO TERMINAL 'out1';
+		
+		RETURN FALSE;
+	END;
+END MODULE;
+
+
+
+CREATE COMPUTE MODULE Create_Response
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.HTTPInputHeader = Environment.Variables.HTTPContext;
+		SET OutputRoot.XMLNSC.WhoAreHere = Environment.Variables.ConcatString || ' are here!';
+		
+		RETURN TRUE;
+	END;
+END MODULE;
+
+
+
+CREATE COMPUTE MODULE Store_MessageID
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		CREATE LASTCHILD OF Environment.Variables.msgIds NAME 'msgId' VALUE InputLocalEnvironment.WrittenDestination.MQ.DestinationData.msgId;
+		
+		RETURN FALSE;
+	END;
+END MODULE;
+
+
+
+CREATE COMPUTE MODULE Concat_Messages
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		DECLARE inputRef REFERENCE TO InputRoot.XMLNSC.GuestBook.Guest;
+		
+		IF Environment.Variables.ConcatString IS NULL THEN
+			SET Environment.Variables.ConcatString = '';
+			SET Environment.Variables.ConcatString = inputRef.FName || ' ' || inputRef.LName;
+		ELSE
+			SET Environment.Variables.ConcatString = Environment.Variables.ConcatString || ', ' || inputRef.FName || ' ' || inputRef.LName;
+		END IF;
+		
+		RETURN FALSE;
+	END;
+END MODULE;
+
+
+CREATE COMPUTE MODULE Iterate_Through_MessageIDs
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		SET OutputRoot.MQMD = InputRoot.MQMD;
+		
+		DECLARE msgIdRef REFERENCE TO InputRoot.XMLNSC.MsgIds;
+		MOVE msgIdRef FIRSTCHILD NAME 'MsgId';
+
+		WHILE LASTMOVE(msgIdRef) DO
+			SET OutputRoot.MQMD.MsgId = CAST(FIELDVALUE(msgIdRef) AS BLOB);
+			
+			PROPAGATE TO TERMINAL 'out';
+			MOVE msgIdRef NEXTSIBLING REPEAT NAME;
+		END WHILE;
+		
+		PROPAGATE TO TERMINAL 'out1';
+		RETURN FALSE;
+	END;
+END MODULE;

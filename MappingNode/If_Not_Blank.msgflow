@@ -6,7 +6,7 @@
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/_IIB_Elljes_Examples/icons/full/obj16/If_Not_Blank.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/_IIB_Elljes_Examples/icons/full/obj30/If_Not_Blank.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="120,20" mappingExpression="msl://{MappingNode}#If_Not_Blank">
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="120,20" mappingExpression="msl://{If_Not_Blank}#If_Not_Blank">
         <translation xmi:type="utility:ConstantString" string="If Not Blank"/>
       </nodes>
       <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="10,20" URLSpecifier="/exampleproject/mappingnode/if-not-blank" messageDomainProperty="XMLNSC">

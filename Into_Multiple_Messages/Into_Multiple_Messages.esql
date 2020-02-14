@@ -1,4 +1,5 @@
-BROKER SCHEMA MappingNode
+BROKER SCHEMA Into_Multiple_Messages
+
 
 
 CREATE COMPUTE MODULE Create_Response

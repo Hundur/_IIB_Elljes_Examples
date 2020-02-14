@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="MQGet_Message_Batch" version="8.0.5.0" xmlns:map="MQGet_Message_Batch">
+    <input path="/Schemas/GuestBook.xsd"/>
+    <output path="/Schemas/GuestBook.xsd"/>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="Into_Multiple_Messages">
+        <input path="mb:msg(GuestBook,assembly,XMLNSC)" var="MessageAssembly"/>
+        <output path="mb:msg(GuestBook,assembly,XMLNSC)" var="MessageAssembly1"/>
+        <foreach>
+            <input path="$MessageAssembly/GuestBook/Guest"/>
+            <output path="$MessageAssembly1/."/>
+            <move>
+                <input path="FName"/>
+                <output path="GuestBook/Guest/FName"/>
+            </move>
+            <move>
+                <input path="LName"/>
+                <output path="GuestBook/Guest/LName"/>
+            </move>
+            <move>
+                <input path="FullName"/>
+                <output path="GuestBook/Guest/FullName"/>
+            </move>
+        </foreach>
+    </mappingDeclaration>
+</mappingRoot>

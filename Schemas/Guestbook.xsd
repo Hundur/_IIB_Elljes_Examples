@@ -18,12 +18,12 @@
   <xs:complexType name="Guest">
   	<xs:sequence>
   		<xs:element name="FName" type="xs:string"
-  			maxOccurs="unbounded" minOccurs="0">
+  			maxOccurs="1" minOccurs="0">
   		</xs:element>
   		<xs:element name="LName" type="xs:string"
-  			maxOccurs="unbounded" minOccurs="0">
+  			maxOccurs="1" minOccurs="0">
   		</xs:element>
-  		<xs:element name="FullName" type="xs:string" maxOccurs="unbounded" minOccurs="0"></xs:element>
+  		<xs:element name="FullName" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
   	</xs:sequence>
   </xs:complexType>
 </xs:schema>

@@ -6,7 +6,7 @@
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/_IIB_Elljes_Examples/icons/full/obj16/Default_Value_If_Blank.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/_IIB_Elljes_Examples/icons/full/obj30/Default_Value_If_Blank.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="120,20" mappingExpression="msl://{MappingNode}#Default_Value_If_Blank">
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="120,20" mappingExpression="msl://{Default_Value_If_Blank}#Default_Value_If_Blank">
         <translation xmi:type="utility:ConstantString" string="Default Value If Blank"/>
       </nodes>
       <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="257,20">

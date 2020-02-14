@@ -6,7 +6,7 @@
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/_IIB_Elljes_Examples/icons/full/obj16/Concat.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/_IIB_Elljes_Examples/icons/full/obj30/Concat.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="120,20" mappingExpression="msl://{MappingNode}#Concat">
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="120,20" mappingExpression="msl://{Concat}#Concat">
         <translation xmi:type="utility:ConstantString" string="Concat"/>
       </nodes>
       <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="10,20" URLSpecifier="/exampleproject/mappingnode/concat" messageDomainProperty="XMLNSC">

@@ -6,7 +6,7 @@
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/_IIB_Elljes_Examples/icons/full/obj16/Into_Multiple_Messages.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/_IIB_Elljes_Examples/icons/full/obj30/Into_Multiple_Messages.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="282,20" mappingExpression="msl://{MappingNode}#Into_Multiple_Messages">
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="282,20" mappingExpression="msl://{Into_Multiple_Messages}#Into_Multiple_Messages">
         <translation xmi:type="utility:ConstantString" string="Into Multiple Messages"/>
       </nodes>
       <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="10,20" URLSpecifier="/exampleproject/mappingnode/into-multiple-messages" messageDomainProperty="XMLNSC">
@@ -15,13 +15,13 @@
       <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="434,102">
         <translation xmi:type="utility:ConstantString" string="Respond to User"/>
       </nodes>
-      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="435,20" computeExpression="esql://routine/MappingNode#Count_Messages.Main">
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="435,20" computeExpression="esql://routine/Into_Multiple_Messages#Count_Messages.Main">
         <translation xmi:type="utility:ConstantString" string="Count Messages"/>
       </nodes>
-      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="120,20" computeExpression="esql://routine/MappingNode#Respond_When_Finished.Main">
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="120,20" computeExpression="esql://routine/Into_Multiple_Messages#Respond_When_Finished.Main">
         <translation xmi:type="utility:ConstantString" string="Respond When Finished"/>
       </nodes>
-      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="295,102" computeExpression="esql://routine/MappingNode#Create_Response.Main">
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="295,102" computeExpression="esql://routine/Into_Multiple_Messages#Create_Response.Main">
         <translation xmi:type="utility:ConstantString" string="Create Response"/>
       </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>

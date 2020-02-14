@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="MappingNode" version="8.0.5.0" xmlns:map="MappingNode">
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="If_Not_Blank" version="8.0.5.0" xmlns:map="If_Not_Blank">
     <input path="/Schemas/GuestBook.xsd"/>
     <output path="/Schemas/GuestBook.xsd"/>
     <namespaces>
