@@ -6,7 +6,7 @@
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/_IIB_Elljes_Examples/icons/full/obj16/Null_If_Blank.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/_IIB_Elljes_Examples/icons/full/obj30/Null_If_Blank.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="120,20" computeExpression="esql://routine/ESQL#Null_If_Blank.Main">
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="120,20" computeExpression="esql://routine/Null_If_Blank#Null_If_Blank.Main">
         <translation xmi:type="utility:ConstantString" string="Null If Blank"/>
       </nodes>
       <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="10,20" URLSpecifier="/exampleproject/esql/null-if-blank" messageDomainProperty="XMLNSC">
