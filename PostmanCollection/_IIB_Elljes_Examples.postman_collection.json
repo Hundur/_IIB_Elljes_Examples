@@ -63,6 +63,55 @@
 					"response": []
 				},
 				{
+					"name": "extract",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7e30d59b-6623-4353-83fe-2d5299f73cf6",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Extract>\r\n\t<Date>2020-02-04 14:23:48</Date>\r\n\t<Operation>DAYOFWEEK</Operation>\r\n</Extract>\r\n\r\n<!--\r\n\tOperations supported:\r\n\t\tYEAR\t\t  - Year\r\n\t\tMONTH\t\t  - Month\r\n\t\tDAY\t\t\t  - Day\r\n\t\tHOUR\t\t  - Hour\r\n\t\tMINUTE\t\t  - Minute\r\n\t\tSECOND\t\t  - Second\r\n\t\tDAYS\t\t  - Days encountered between 1st January 0001 and the SourceDate. \r\n\t\tDAYOFYEAR     - Day of year\r\n\t\tDAYOFWEEK\t  - Day of the week: Sunday = 1, Monday = 2, Tuesday = 3, Wednesday = 4, Thursday = 5, Friday = 6, Saturday = 7.\r\n\t\tMONTHS\t\t  - Months encountered between 1st January 0001 and the SourceDate. \r\n\t\tQUARTEROFYEAR - Quarter of year: January to March = 1, April to June = 2, July to September = 3, October to December = 4.\r\n\t\tQUARTERS\t  - Quarters encountered between 1st January 0001 and the SourceDate.\r\n\t\tWEEKS\t\t  - Weeks encountered between 1st January 0001 and the SourceDate.\r\n\t\tWEEKOFYEAR\t  - Week of year\r\n\t\tWEEKOFMONTH\t  - Week of month\r\n\t\tISLEAPYEAR\t  - Whether this is a leap year\r\n-->",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7080/exampleproject/esql/extract",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7080",
+							"path": [
+								"exampleproject",
+								"esql",
+								"extract"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "trim-string-padding",
 					"event": [
 						{
