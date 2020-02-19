@@ -1,0 +1,68 @@
+BROKER SCHEMA Extract
+
+
+CREATE COMPUTE MODULE Extract
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		DECLARE inDate TIMESTAMP InputRoot.XMLNSC.Extract.Date;
+		DECLARE operation CHAR InputRoot.XMLNSC.Extract.Operation;
+		
+		IF operation = 'YEAR' THEN
+			SET OutputRoot.XMLNSC.Response = EXTRACT(YEAR FROM inDate);			
+			
+		ELSEIF operation = 'MONTH' THEN
+			SET OutputRoot.XMLNSC.Response = EXTRACT(MONTH FROM inDate);			
+						
+		ELSEIF operation = 'DAY' THEN
+			SET OutputRoot.XMLNSC.Response = EXTRACT(DAY FROM inDate);			
+						
+		ELSEIF operation = 'HOUR' THEN
+			SET OutputRoot.XMLNSC.Response = EXTRACT(HOUR FROM inDate);				
+					
+		ELSEIF operation = 'MINUTE' THEN
+			SET OutputRoot.XMLNSC.Response = EXTRACT(MINUTE FROM inDate);	
+					
+		ELSEIF operation = 'SECOND' THEN
+			SET OutputRoot.XMLNSC.Response = EXTRACT(SECOND FROM inDate);	
+					
+		ELSEIF operation = 'DAYS' THEN
+			SET OutputRoot.XMLNSC.Response = EXTRACT(DAYS FROM inDate);	
+					
+		ELSEIF operation = 'DAYOFYEAR' THEN
+			SET OutputRoot.XMLNSC.Response = EXTRACT(DAYOFYEAR FROM inDate);
+						
+		ELSEIF operation = 'DAYOFWEEK' THEN
+			SET OutputRoot.XMLNSC.Response = EXTRACT(DAYOFWEEK FROM inDate);
+						
+		ELSEIF operation = 'MONTHS' THEN
+			SET OutputRoot.XMLNSC.Response = EXTRACT(MONTHS FROM inDate);	
+					
+		ELSEIF operation = 'QUARTEROFYEAR' THEN
+			SET OutputRoot.XMLNSC.Response = EXTRACT(QUARTEROFYEAR FROM inDate);
+						
+		ELSEIF operation = 'QUARTERS' THEN
+			SET OutputRoot.XMLNSC.Response = EXTRACT(QUARTERS FROM inDate);		
+				
+		ELSEIF operation = 'WEEKS' THEN
+			SET OutputRoot.XMLNSC.Response = EXTRACT(WEEKS FROM inDate);	
+					
+		ELSEIF operation = 'WEEKOFYEAR' THEN
+			SET OutputRoot.XMLNSC.Response = EXTRACT(WEEKOFYEAR FROM inDate);
+						
+		ELSEIF operation = 'WEEKOFMONTH' THEN
+			SET OutputRoot.XMLNSC.Response = EXTRACT(WEEKOFMONTH FROM inDate);
+						
+		ELSEIF operation = 'ISLEAPYEAR' THEN
+			SET OutputRoot.XMLNSC.Response = EXTRACT(ISLEAPYEAR FROM inDate);	
+					
+		ELSEIF operation = 'MONTH' THEN
+			SET OutputRoot.XMLNSC.Response = EXTRACT(MONTH FROM inDate);
+			
+		ELSE
+			SET OutputRoot.XMLNSC.Response = 'Not a valid operation';						
+		END IF;
+		
+		RETURN TRUE;
+	END;
+END MODULE;
